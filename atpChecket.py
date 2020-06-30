@@ -59,7 +59,7 @@ listNext = []
 for tag in rankDataList:
     atpUrl = "https://www.atptour.com/en/rankings/singles?rankDate=" + tag + "&rankRange=1-1000&countryCode=JPN"
     browser.get(atpUrl)
-    time.sleep(1)
+    #time.sleep(1)
 
     pagehtml = browser.page_source
     soup = BeautifulSoup(pagehtml, 'html.parser')
@@ -89,58 +89,6 @@ for tag in rankDataList:
             cleanUpTag(listNext[i])
             )
     #time.sleep(1)
-
-
-'''
-<a href="/en/players/kei-nishikori/n552/overview" class="" ga-label="Kei Nishikori" ga-action="" ga-category="" ga-use="true">
-                            Kei Nishikori</a>
-re.sub(r"^\s+|\s+$", "", s)
-
-rank-cell
-move-cell
-player-cell
-age-cell
-points-cell
-tourn-cell
-pts-cell
-next-cell
-
-rankDateList = []
-rankDateList = soup.find_all('li', text = 'date-value')
-print(len(rankDateList))
-'''
-
-'''
-start_dt = datetime.datetime.strptime(start_dt, '%Y%m%d')
-#start_dt = (start_dt - datetime.timedelta(days=50)).strftime('%Y-%m-%d')
-for i in reversed(range(0, 50)):
-    dt = (start_dt - datetime.timedelta(days=i*7)).strftime('%Y-%m-%d')
-    print(dt)
-
-    #url = "https://sa.www4.irs.gov/irfof-wmsp/login"
-    atpUrl = "https://www.atptour.com/en/rankings/singles?rankDate=" + dt + "&rankRange=1-5000&countryCode=JPN"
-    browser.get(atpUrl)
-    time.sleep(3)
-
-    submit_button = browser.find_element_by_id('filterSubmit')
-    submit_button.click()
-    time.sleep(3)
-
-https://www.atptour.com/en/rankings/singles?rankDate=2020-03-16&rankRange=1-5000&countryCode=JPN
-<button id="filterSubmit" data-resulturl="/en/rankings/singles" data-urltype="path" class="filter-submit">
-            Go
-        </button>
-'''
-
-'''
-# print the status of pandemic support check
-pagehtml = browser.page_source
-soup = BeautifulSoup(pagehtml, 'html.parser')
-
-now = datetime.datetime.now()
-timestamp=now.strftime("%D %T")
-print(timestamp + '\t' + soup.find(class_ = 'login-title').string)
-'''
 
 time.sleep(3)
 browser.close()
