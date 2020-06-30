@@ -82,10 +82,10 @@ for tag in rankDataList:
             cleanUpTag(listMove[i]) + ", ",
             re.sub(r"^\s+", "", s)  + ", ",
             cleanUpTag(listAge[i])  + ", ",
-            ss + ", ",
+            ss.replace(",","") + ", ",
             sss + ", ",
             cleanUpTag(listPts[i])  + ", ",
-            cleanUpTag(listNext[i])  + ", ",
+            cleanUpTag(listNext[i])
             )
     #time.sleep(1)
 
