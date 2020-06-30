@@ -16,6 +16,8 @@ def cleanUpTag(listTag):
 
 
 #===
+print("Date, Ranking, Move, Player, Age, Points, Tourn Played, Points Dropping, Next Best")
+
 browser = webdriver.Chrome()
 browser.implicitly_wait(3)
 
@@ -72,7 +74,6 @@ for tag in rankDataList:
 
     #for tmp in listPlayer:
     #    print(tmp.find('a').string)
-
     for i in range(len(listRank)):
         s = cleanUpTag(listPlayer[i].find('a'))
         ss = cleanUpTag(listPoints[i].find('a'))
