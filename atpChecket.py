@@ -1,3 +1,10 @@
+# Scrapping Japanese tennis player ranking from ATP web site
+# Copyright 2020 Eiji Oga @ Suo Solutions
+#
+# exvironment:
+#   mac os 10.15
+#   python 3.7.7
+
 from selenium import webdriver
 import time
 import datetime
@@ -13,7 +20,6 @@ def cleanUpTag(listTag):
         return(listTag.string.replace("\n","").replace("\t", ""))
     else:
         return("")
-
 
 #===
 print("Date, Ranking, Move, Player, Age, Points, Tourn Played, Points Dropping, Next Best")
