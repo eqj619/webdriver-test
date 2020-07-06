@@ -1,5 +1,11 @@
 # pip install selenium
 # brew cask install chromedriver
+
+# Please set your SSN into keyring at your envinronment before
+# $python
+# $keyring.set_password(<id>, <user>, <password>)
+# $example: keyring.set_password("MySSN", "MySSN_Bob", "123456789")
+
 from selenium import webdriver
 import time
 import pandas as pd
@@ -18,7 +24,8 @@ time.sleep(1)
 
 #input SSN
 ssn_area = browser.find_element_by_id('ssnInput')
-ssn_area.send_keys("111223333")
+#ssn_area.send_keys("111223333")
+ssn_area.send_keys(keyring.get_password("MySSN", "MySSN_Bob"))
 time.sleep(1)
 
 #input DOB mm/dd/yyyy
