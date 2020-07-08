@@ -65,7 +65,7 @@ listNext = []
 for tag in rankDataList:
     atpUrl = "https://www.atptour.com/en/rankings/singles?rankDate=" + tag + "&rankRange=1-1000&countryCode=JPN"
     browser.get(atpUrl)
-    #time.sleep(1)
+    time.sleep(1)
 
     pagehtml = browser.page_source
     soup = BeautifulSoup(pagehtml, 'html.parser')
@@ -94,7 +94,7 @@ for tag in rankDataList:
             cleanUpTag(listPts[i])  + ", ",
             cleanUpTag(listNext[i])
             )
-    #time.sleep(1)
+    time.sleep(1)
 
 time.sleep(3)
 browser.close()
