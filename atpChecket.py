@@ -24,7 +24,7 @@ def cleanUpTag(listTag):
 #===
 print("Date, Ranking, Move, Player, Age, Points, Tourn Played, Points Dropping, Next Best")
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome('/usr/local/bin/chromedriver')
 browser.implicitly_wait(3)
 
 now = datetime.datetime.now()
@@ -62,8 +62,14 @@ listTourn = []
 listPts = []
 listNext = []
 
+NumOfWeeks = 0
 for tag in rankDataList:
-    atpUrl = "https://www.atptour.com/en/rankings/singles?rankDate=" + tag + "&rankRange=1-1000&countryCode=JPN"
+    if NumOfWeeks <= 52:
+        NumOfWeeks += 1
+    else:
+        break
+
+    atpUrl = "https://www.atptour.com/en/rankings/singles?rankDate=" + tag + "&rankRange=1-200&countryCode=JPN"
     browser.get(atpUrl)
     time.sleep(1)
 
